@@ -8,8 +8,10 @@
 export default {
 data() {
   return {
-      msg: 'Hello World'
+      month: 11,
+      year: 2018
     }
   }
 }
+
 </script>
