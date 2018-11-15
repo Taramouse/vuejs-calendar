@@ -1,13 +1,14 @@
 <template>
-<div>
-  <div v-for="week in weeks" :key="week.day">
-    Week
-    <div v-for="day in week" :key="day">{{ day }}</div>
+<div id="calendar">
+  <div class="calendar-week" v-for="week in weeks" :key="week.day">
+    <calendar-day v-for="day in week" :day="day" :key="day"></calendar-day>
   </div>
 </div>
 </template>
 
 <script>
+import CalendarDay from './CalendarDay.vue'
+
 export default {
   data() {
     return {
@@ -48,6 +49,7 @@ export default {
       return days
     },
     weeks() {
+      // Group days into weeks
       let weeks = []
       let week = []
       for (let day of this.days) {
@@ -59,6 +61,9 @@ export default {
       }
       return weeks
     }
+  },
+  components: {
+    CalendarDay
   }
 }
 </script>
