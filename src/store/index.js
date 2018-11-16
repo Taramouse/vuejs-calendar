@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import moment from 'moment-timezone'
+moment.tz.setDefault('UTC')
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -9,7 +12,12 @@ export default new Vuex.Store({
     currentMonth: 11,
     eventFormPosX: 0,
     eventFormPosY: 0,
-    eventFormActive: false
+    eventFormActive: false,
+    events: [
+      {description: 'Applied for PIP', date: moment('2018-11-15', 'YYYY-MM-DD') },
+      {description: 'PIP form sent', date: moment('2018-11-16', 'YYYY-MM-DD') },
+      {description: 'UC Pay Day', date: moment('2018-11-27', 'YYYY-MM-DD') }
+    ]
   },
   mutations: {
     setCurrentMonth(state, payload) {

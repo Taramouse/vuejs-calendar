@@ -17,12 +17,7 @@ export default {
   },
   computed: {
     events() {
-      let mockData = [
-        {description: 'Applied for PIP', date: this.$moment('2018-11-15', 'YYYY-MM-DD') },
-        {description: 'PIP form sent', date: this.$moment('2018-11-16', 'YYYY-MM-DD') },
-        {description: 'UC Pay Day', date: this.$moment('2018-11-27', 'YYYY-MM-DD') }
-      ]
-      return mockData.filter(event => event.date.isSame(this.day, 'day'))
+      return this.$store.state.events.filter(event => event.date.isSame(this.day, 'day'))
     },
     classObject() {
       let today = this.day.isSame(this.$moment(), 'day')
