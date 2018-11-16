@@ -2,7 +2,7 @@
   <div>
     <div id="header">
       <div>
-        <h1>Vuejs Calendar</h1>
+        <h1>Vue.js Calendar</h1>
       </div>
       <div>
         <current-month></current-month>
