@@ -8,6 +8,7 @@ $buttermilk: rgba(255, 238, 173, 0.4);
 $vista-blue: #42b983;
 $pink: rgba(255, 182, 193, 0.3);
 $pickled-bluewood: #35495e;
+$blue-highlight: rgba(149, 192, 248, 0.6);
 
 $calendar-border: 1px solid $alto;
 
@@ -131,7 +132,7 @@ body {
           }
 
           &.today {
-            background-color: $buttermilk;
+            background-color: $blue-highlight;
           }
 
           &.active {
