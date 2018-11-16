@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
 
 });
 
+app.post('/add-event', (req, res) => {
+  console.log('path /add-event recived')
+});
+
 const server = http.createServer(app);
 
 if (process.env.NODE_ENV === 'development') {

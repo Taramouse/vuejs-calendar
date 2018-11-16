@@ -4,6 +4,8 @@ import Vuex from 'vuex'
 import moment from 'moment-timezone'
 moment.tz.setDefault('UTC')
 
+import Axios from 'axios'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -35,10 +37,12 @@ export default new Vuex.Store({
       state.eventFormActive = payload
     },
     addEvent(state, payload) {
-      state.events.push({
+      let obj = {
         description: payload,
         date: state.eventFormDate
-      })
+      }
+      state.events.push(obj)
+      Axios.post('/add-event', obj)
     },
     eventFormDate(state, payload) {
       state.eventFormDate = payload
