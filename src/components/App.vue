@@ -1,9 +1,20 @@
 <template>
-<div id="calendar">
-  <div class="calendar-week" v-for="week in weeks" :key="week.day">
-    <calendar-day v-for="day in week" :day="day" :key="day"></calendar-day>
+  <div>
+    <div id="day-bar">
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div>Sat</div>
+      <div>Sun</div>
+    </div>
+    <div id="calendar">
+      <div class="calendar-week" v-for="week in weeks" :key="week.day">
+        <calendar-day v-for="day in week" :day="day" :key="day"></calendar-day>
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -24,7 +35,7 @@ export default {
       do {
         days.push(currentDay)
         currentDay = this.$moment(currentDay).add(1, 'days')
-      } while ((currentDay.month() + 1) === this.month)
+      } while (currentDay.month() + 1 === this.month)
 
       // Add previous days to start
       currentDay = this.$moment(days[0])
