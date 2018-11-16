@@ -12,11 +12,15 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   let template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
   res.send(template);
-
 });
 
+// Events
+let events = [];
+
+app.use(require('body-parser').json())
 app.post('/add-event', (req, res) => {
-  console.log('path /add-event recived')
+  events.push(req.body);
+  res.sendStatus(200);
 });
 
 const server = http.createServer(app);
