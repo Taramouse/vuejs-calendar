@@ -18,7 +18,7 @@ export default new Vuex.Store({
       {description: 'PIP form sent', date: moment('2018-11-16', 'YYYY-MM-DD') },
       {description: 'UC Pay Day', date: moment('2018-11-27', 'YYYY-MM-DD') }
     ],
-    eventFormDate: null
+    eventFormDate: moment()
   },
   mutations: {
     setCurrentMonth(state, payload) {
