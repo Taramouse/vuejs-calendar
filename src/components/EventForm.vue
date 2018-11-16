@@ -1,9 +1,16 @@
 <template>
- <div id="event-form" :class="{ active: true }" :style="{ top: '300px', left: '500px' }">Event Form</div>
+ <div id="event-form" :class="{ active: true }" :style="{ top: top, left: left }">Event Form</div>
 </template>
 <script>
 export default {
-
+  computed: {
+    top() {
+      return `${this.$store.state.eventFormPosY}px`
+    },
+    left() {
+      return `${this.$store.state.eventFormPosX}px`
+    }
+  }
 }
 </script>
 
