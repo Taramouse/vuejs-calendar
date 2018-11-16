@@ -13,6 +13,7 @@ export default {
     captureClick(event) {
       this.$store.commit('eventFormPos', { x: event.clientX, y: event.clientY })
       this.$store.commit('eventFormActive', true)
+      this.$store.commit('eventFormDate', this.day)
     }
   },
   computed: {
