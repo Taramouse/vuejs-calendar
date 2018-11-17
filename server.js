@@ -29,12 +29,15 @@ app.get('/', (req, res) => {
       if(err) {
         console.log(err)
       } else {
-        console.log(html)
+        res.send(template.replace(contentMarker,
+          `<script>var __INITIAL_STATE__ = ${serialize(events)}</script>\n${html}`
+        ));
       }
     });
+  } else {
+    res.send('<p>Awaiting compilation...</p>');
   }
 
-  res.send(template.replace(contentMarker, `<script>var __INITIAL_STATE__ = ${serialize(events)}</script>`));
 });
 
 app.use(require('body-parser').json())
