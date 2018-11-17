@@ -5,23 +5,32 @@ const app = express();
 const path = require('path');
 const fs = require('fs');
 const http = require('http');
+const moment = require('moment-timezone')
+moment.tz.setDefault('UTC')
+const serialize = require('serialize-javascript')
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-// app.use('/dist', express.static(path.join(__dirname, 'dist')));
+
+// --- Inject Events ---
+let events = [
+  {description: 'Example Event 1', date: moment('2018-11-15', 'YYYY-MM-DD') },
+  {description: 'Example Event 2', date: moment('2018-11-16', 'YYYY-MM-DD') },
+  {description: 'Example Event 3', date: moment('2018-11-27', 'YYYY-MM-DD') }
+];
 
 app.get('/', (req, res) => {
   let template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
-  res.send(template);
+  // Inject events into html
+  let contentMarker = '<!-- APP -->'
+  res.send(template.replace(contentMarker, `<script>var __INITIAL_STATE__ = ${serialize(events)}</script>`));
 });
-
-// Events
-let events = [];
 
 app.use(require('body-parser').json())
 app.post('/add-event', (req, res) => {
   events.push(req.body);
   res.sendStatus(200);
 });
+// --- /Inject Events ---
 
 const server = http.createServer(app);
 
