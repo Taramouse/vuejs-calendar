@@ -15,11 +15,7 @@ export default new Vuex.Store({
     eventFormPosX: 0,
     eventFormPosY: 0,
     eventFormActive: false,
-    events: [
-      {description: 'Applied for PIP', date: moment('2018-11-15', 'YYYY-MM-DD') },
-      {description: 'PIP form sent', date: moment('2018-11-16', 'YYYY-MM-DD') },
-      {description: 'UC Pay Day', date: moment('2018-11-27', 'YYYY-MM-DD') }
-    ],
+    events: [],
     eventFormDate: moment()
   },
   mutations: {
