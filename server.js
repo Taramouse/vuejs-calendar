@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
   // Inject events into html
   let contentMarker = '<!-- APP -->'
   if (renderer) {
-    renderer.renderToString({}, (err, html) => {
+    renderer.renderToString({ events }, (err, html) => {
       if(err) {
         console.log(err)
       } else {
@@ -42,7 +42,10 @@ app.get('/', (req, res) => {
 
 app.use(require('body-parser').json())
 app.post('/add-event', (req, res) => {
-  events.push(req.body);
+  events.push({
+    description: req.body.description,
+    date: moment(req.body.date)
+  });
   res.sendStatus(200);
 });
 // --- /Inject Events ---
