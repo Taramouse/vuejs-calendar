@@ -1,14 +1,16 @@
 // Colors
 
 $dusty-gray: #999;
-$gallery: #eeeeee;
 $alto: #ddd;
 $bittersweet: #ff6f69;
 $buttermilk: rgba(255, 238, 173, 0.4);
-$vista-blue: #42b983;
-$pink: rgba(255, 182, 193, 0.3);
-$pickled-bluewood: #35495e;
-$blue-highlight: rgba(149, 192, 248, 0.6);
+
+$blue-highlight: rgba(172, 126, 246, 0.5);
+$vista-blue: rgb(106, 17, 248);
+$gallery: #AB7EF6;
+$pickled-bluewood: #FAFBFC;
+$grey-text: #18191A;
+$pink: rgba(255, 182, 193, 0.6);
 
 $calendar-border: 1px solid $alto;
 
@@ -118,6 +120,7 @@ body {
           cursor: default;
           border-left: $calendar-border;
           border-top: $calendar-border;
+          color: $grey-text;
 
           &:last-child {
             border-right: $calendar-border;
@@ -140,7 +143,7 @@ body {
           }
 
           .event-list {
-            font-size: 0.8rem;
+            font-size: 1rem;
             color: $vista-blue;
             font-weight: bold;
             list-style: none;
@@ -179,6 +182,7 @@ body {
       padding: 1rem;
       background-color: white;
       border: 1px $alto solid;
+      color: $grey-text;
 
       &.active {
         display: flex;
@@ -190,7 +194,6 @@ body {
 
       h4 {
         margin: 0 0 0.75rem 0;
-        color: $dusty-gray;
         font-weight: normal;
         font-size: 1.15rem;
       }
